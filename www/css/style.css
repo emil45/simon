@@ -2,3 +2,9 @@
 .center {
 	text-align: center;
 }
+
+.row-mat {
+	margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
