@@ -52,5 +52,13 @@ angular.module('starter.controllers', [])
   ];
 })
 
+.controller('TodCtrl', function ($scope) {
+
+  $scope.success = function () {
+    swal('Good job!', 'You clicked the button!', 'success')
+  }
+  // body...
+})
+
 .controller('StartCtrl', function($scope, $stateParams) {
 });
