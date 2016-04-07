@@ -50,11 +50,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
-  .state('app.groupEdit', {
-      url: '/groupEdit',
+  .state('app.tod', {
+      url: '/tod',
       views: {
         'menuContent': {
-          templateUrl: 'templates/groupEdit.html'
+          templateUrl: 'templates/tod.html'
         }
       }
     })
