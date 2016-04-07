@@ -54,6 +54,29 @@ angular.module('starter.controllers', [])
 
 .controller('TodCtrl', function ($scope, $interval) {
 
+        $scope.puzzels = [
+          {
+            title: "Puzze #1",
+            q: "This is my first battle in war?",
+            isFinished: false
+          },
+          {
+            title: "Puzze #2",
+            q: "I used to collect the water from the rain?",
+            isFinished: false
+          },
+          {
+            title: "Puzze #3",
+            q: "I'm the highest place in the citadel?",
+            isFinished: false
+          },
+          {
+            title: "Puzze #4",
+            q: "I'm hiding in the crusader room?",
+            isFinished: false
+          }
+        ]
+
         var totalSeconds = 0;
         $interval(setTime, 1000)
         $scope.secondsLabel = '00'
@@ -79,8 +102,14 @@ angular.module('starter.controllers', [])
             }
         }
 
-  $scope.success = function () {
-    swal('Good job!', 'You clicked the button!', 'success')
+  $scope.success = function (puzzle) {
+    angular.forEach($scope.puzzels, function(p) {
+      if (p.title === puzzle.title) {
+        p.isFinished = true;
+      }
+    });
+
+    swal('Good job!', 'You finished ' + puzzle.title, 'success')
   }
   // body...
 })
