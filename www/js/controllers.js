@@ -52,7 +52,32 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('TodCtrl', function ($scope) {
+.controller('TodCtrl', function ($scope, $interval) {
+
+        var totalSeconds = 0;
+        $interval(setTime, 1000)
+        $scope.secondsLabel = '00'
+        $scope.minutesLabel = '00'
+
+        function setTime()
+        {
+            ++totalSeconds;
+            $scope.secondsLabel = pad(totalSeconds%60);
+            $scope.minutesLabel = pad(parseInt(totalSeconds/60));
+        }
+
+        function pad(val)
+        {
+            var valString = val + "";
+            if(valString.length < 2)
+            {
+                return "0" + valString;
+            }
+            else
+            {
+                return valString;
+            }
+        }
 
   $scope.success = function () {
     swal('Good job!', 'You clicked the button!', 'success')
