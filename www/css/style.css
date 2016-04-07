@@ -4,3 +4,35 @@
     margin-right: auto;
     margin-bottom: 20px;
 }
+
+.card-title {
+	text-shadow: 2px 1px black;
+}
+
+/* label color */
+.input-field label {
+ color: #ec407a;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+ color: #ec407a;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+ border-bottom: 1px solid #ec407a;
+ box-shadow: 0 1px 0 0 #ec407a;
+}
+/* valid color */
+.input-field input[type=text].valid {
+ border-bottom: 1px solid #ec407a;
+ box-shadow: 0 1px 0 0 #ec407a;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+ border-bottom: 1px solid #ec407a;
+ box-shadow: 0 1px 0 0 #ec407a;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+ color: #ec407a;
+}
