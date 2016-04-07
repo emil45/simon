@@ -49,6 +49,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+
+  .state('app.groupEdit', {
+      url: '/groupEdit',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/groupEdit.html'
+        }
+      }
+    })
+
     .state('app.start', {
       url: '/start',
       views: {
