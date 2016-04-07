@@ -54,7 +54,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/tod',
       views: {
         'menuContent': {
-          templateUrl: 'templates/tod.html'
+          templateUrl: 'templates/tod.html',
+          controller: 'TodCtrl'
         }
       }
     })
