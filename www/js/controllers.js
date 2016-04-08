@@ -58,32 +58,32 @@ angular.module('starter.controllers', [])
           {
             title: "Puzze #1",
             q: "This is my first battle in war?",
-            isFinished: false,
+            isFinished: true,
             id: "tod-1"
           },
           {
             title: "Puzze #2",
             q: "I used to collect the water from the rain?",
             isFinished: true,
-            id: "tod-1"
+            id: "tod-2"
           },
           {
             title: "Puzze #3",
             q: "I'm the highest place in the citadel?",
             isFinished: true,
-            id: "tod-1"
+            id: "tod-3"
           },
           {
             title: "Puzze #4",
             q: "I'm hiding in the crusader room?",
-            isFinished: true,
-            id: "tod-1"
+            isFinished: false,
+            id: "tod-4"
           },
           {
             title: "Puzze #5",
             q: "I'm hiding in the hourses room?",
-            isFinished: true,
-            id: "tod-1"
+            isFinished: false,
+            id: "tod-5"
           }
         ]
 
@@ -130,13 +130,26 @@ angular.module('starter.controllers', [])
         }
 
   function success (puzzle) {
+    var isFinishedAll = true;
     angular.forEach($scope.puzzels, function(p) {
       if (p.title === puzzle.title) {
         p.isFinished = true;
       }
+
+      if (!p.isFinished) {
+        var isFinishedAll = false;
+      }
     });
 
-    swal('Good job!', 'You finished ' + puzzle.title, 'success')
+    if (isFinishedAll) {
+      swal({
+        title: "Sweet!",
+        text: "Here's a custom image.",
+        imageUrl: 'thumbs-up.jpg'
+      });
+    } else {
+      swal('Good job!', 'You finished ' + puzzle.title, 'success')      
+    }
   }
   // body...
 })
