@@ -52,7 +52,7 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('TodCtrl', function ($scope, $interval) {
+.controller('TodCtrl', function ($scope, $interval, $ionicPlatform, $cordovaBarcodeScanner) {
 
         $scope.puzzels = [
           {
@@ -74,8 +74,24 @@ angular.module('starter.controllers', [])
             title: "Puzze #4",
             q: "I'm hiding in the crusader room?",
             isFinished: false
+          },
+          {
+            title: "Puzze #5",
+            q: "I'm hiding in the hourses room?",
+            isFinished: false
           }
         ]
+
+        $scope.scanQR = function() {
+          $ionicPlatform.ready(function() {
+            $cordovaBarcodeScanner.scan()
+            .then(function(barcodeData) {
+              alert(barcodeData)
+            }, function(error) {
+              alert(error)
+            });
+          });            
+        }
 
         var totalSeconds = 0;
         $interval(setTime, 1000)
