@@ -5,11 +5,6 @@
     margin-bottom: 20px;
 }
 
-.card-title {
-	text-shadow: 1.5px 0.5px 0.5px black;
-	padding: 8px;
-}
-
 /* label color */
 .input-field label {
  color: #ec407a;
