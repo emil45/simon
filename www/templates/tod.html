@@ -1,0 +1,32 @@
+<ion-view view-title="Tower Of David">
+<ion-nav-bar class="pink lighten-1 white-text">
+    <ion-nav-buttons side="left">
+   <!-- Toggle left side menu -->
+	   <button menu-toggle="left" class="button button-icon icon ion-navicon white-text"></button>
+	  </ion-nav-buttons>
+
+  </ion-nav-bar>
+  <ion-content class="grey lighten-3">
+  <div class="container">
+      
+  <ul class="collection">
+    <li class="collection-item avatar" ng-repeat="puzzle in puzzels">
+      <img ng-show="puzzle.isFinished" src="img/achiv.png" alt="" class="circle">
+      <img ng-show="!puzzle.isFinished" src="img/lock.png" alt="" class="circle">
+      <span class="title">{{puzzle.title}}</span>
+      <p>
+      	{{puzzle.q}}
+      </p>
+      <a class="secondary-content">
+      	<i ng-show="puzzle.isFinished" class="material-icons">done</i>
+      	<i ng-show="!puzzle.isFinished" ng-click="scanQR()" class="material-icons">camera_alt</i>
+      </a>
+    </li>
+  </ul>
+  </div>
+  </ion-content>
+  <ion-footer-bar align-title="center" class="pink lighten-1 center">
+  <div class="col s6"><i class="white-text material-icons">timer</i></div>
+  <div class="col s6"><p class="white-text">{{minutesLabel}}:{{secondsLabel}}</p></div>
+</ion-footer-bar>
+</ion-view>
