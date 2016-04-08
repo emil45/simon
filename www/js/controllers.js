@@ -86,7 +86,7 @@ angular.module('starter.controllers', [])
           $ionicPlatform.ready(function() {
             $cordovaBarcodeScanner.scan()
             .then(function(barcodeData) {
-              alert(barcodeData)
+              alert(barcodeData.text)
             }, function(error) {
               alert(error)
             });
