@@ -54,34 +54,38 @@ angular.module('starter.controllers', [])
 
 .controller('TodCtrl', function ($scope, $interval, $ionicPlatform, $cordovaBarcodeScanner) {
 
+  Materialize.showStaggeredList('#shaked')
+
+  $scope.isFinishedAll = false
+
         $scope.puzzels = [
           {
             title: "Puzze #1",
-            q: "This is me in after my first battle in war",
+            q: "This is me in after my first battle in war.",
             isFinished: true,
             id: "tod-1"
           },
           {
             title: "Puzze #2",
-            q: "I used to collect rainwater ?",
+            q: "I used to collect rainwater.",
             isFinished: true,
             id: "tod-2"
           },
           {
             title: "Puzze #3",
-            q: "I'm the highest place in the citadel ?",
+            q: "Come to me and you can see far away.",
             isFinished: true,
             id: "tod-3"
           },
           {
             title: "Puzze #4",
-            q: "In the 11th century we made a journey in Israel, be sure we not came for peace",
+            q: "In the 11th century we made a journey in Israel, be sure we not came for peace.",
             isFinished: false,
             id: "tod-4"
           },
           {
             title: "Puzze #5",
-            q: "You learn in school the reunion of broken parts, know we invented the term",
+            q: "You learn in school the reunion of broken parts, know we invented the term.",
             isFinished: false,
             id: "tod-5"
           }
@@ -105,7 +109,7 @@ angular.module('starter.controllers', [])
         }
 
         var totalSeconds = 0;
-        $interval(setTime, 1000)
+        $scope.timer = $interval(setTime, 1000)
         $scope.secondsLabel = '00'
         $scope.minutesLabel = '00'
 
@@ -137,15 +141,30 @@ angular.module('starter.controllers', [])
       }
 
       if (!p.isFinished) {
-        var isFinishedAll = false;
+        isFinishedAll = false;
       }
     });
 
     if (isFinishedAll) {
+      $scope.isFinishedAll = true
+      $interval.cancel($scope.timer)
       swal({
         title: "Congratulations!",
         text: "You won a prize !",
         imageUrl: 'img/king.png'
+        closeOnConfirm: false,
+        confirmButtonText: "Yeah!",
+      },
+      function(isConfirm) {
+        if (isConfirm) {
+          swal({
+            title: "Night Spectacular",
+            text: "You won a ticket to the Night Spectacular, show this qrcode to the museum information.",
+            imageUrl: 'img/qrcode.png',
+            closeOnConfirm: false,
+            confirmButtonText: "Yeah!",
+          });
+        }
       });
     } else {
       swal('Good job!', 'You finished ' + puzzle.title, 'success')      
