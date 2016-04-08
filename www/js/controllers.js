@@ -57,31 +57,31 @@ angular.module('starter.controllers', [])
         $scope.puzzels = [
           {
             title: "Puzze #1",
-            q: "This is my first battle in war?",
+            q: "This is me in after my first battle in war",
             isFinished: true,
             id: "tod-1"
           },
           {
             title: "Puzze #2",
-            q: "I used to collect the water from the rain?",
+            q: "I used to collect rainwater ?",
             isFinished: true,
             id: "tod-2"
           },
           {
             title: "Puzze #3",
-            q: "I'm the highest place in the citadel?",
+            q: "I'm the highest place in the citadel ?",
             isFinished: true,
             id: "tod-3"
           },
           {
             title: "Puzze #4",
-            q: "I'm hiding in the crusader room?",
+            q: "In the 11th century we made a journey in Israel, be sure we not came for peace",
             isFinished: false,
             id: "tod-4"
           },
           {
             title: "Puzze #5",
-            q: "I'm hiding in the hourses room?",
+            q: "You learn in school the reunion of broken parts, know we invented the term",
             isFinished: false,
             id: "tod-5"
           }
@@ -144,7 +144,7 @@ angular.module('starter.controllers', [])
     if (isFinishedAll) {
       swal({
         title: "Congratulations!",
-        text: "You won a price..",
+        text: "You won a prize !",
         imageUrl: 'img/king.png'
       });
     } else {
