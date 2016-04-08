@@ -7,9 +7,9 @@
 
   </ion-nav-bar>
   <ion-content class="grey lighten-3">
-  <div class="container">
+  <div class="">
       
-  <ul class="collection">
+  <ul class="collection animated swing" id="shaked">
     <li class="collection-item avatar" ng-repeat="puzzle in puzzels">
       <img ng-show="puzzle.isFinished" src="img/achiv.png" alt="" class="circle">
       <img ng-show="!puzzle.isFinished" src="img/lock.png" alt="" class="circle">
@@ -23,6 +23,11 @@
       </div>
     </li>
   </ul>
+  <div class="center" ng-show="isFinishedAll">
+    <a class="btn waves-effect waves-light green" href=#/app/start>
+      Back to Menu
+    </a>
+  </div>
   </div>
   </ion-content>
   <ion-footer-bar align-title="center" class="pink lighten-1 center">

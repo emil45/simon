@@ -54,6 +54,10 @@ angular.module('starter.controllers', [])
 
 .controller('TodCtrl', function ($scope, $interval, $ionicPlatform, $cordovaBarcodeScanner) {
 
+  Materialize.showStaggeredList('#shaked')
+
+  $scope.isFinishedAll = false
+
         $scope.puzzels = [
           {
             title: "Puzze #1",
@@ -105,7 +109,7 @@ angular.module('starter.controllers', [])
         }
 
         var totalSeconds = 0;
-        $interval(setTime, 1000)
+        $scope.timer = $interval(setTime, 1000)
         $scope.secondsLabel = '00'
         $scope.minutesLabel = '00'
 
@@ -137,15 +141,30 @@ angular.module('starter.controllers', [])
       }
 
       if (!p.isFinished) {
-        var isFinishedAll = false;
+        isFinishedAll = false;
       }
     });
 
     if (isFinishedAll) {
+      $scope.isFinishedAll = true
+      $interval.cancel($scope.timer)
       swal({
         title: "Congratulations!",
         text: "You won a price..",
-        imageUrl: 'img/king.png'
+        imageUrl: 'img/king.png',
+        closeOnConfirm: false,
+        confirmButtonText: "Yeah!",
+      },
+      function(isConfirm) {
+        if (isConfirm) {
+          swal({
+            title: "Price",
+            text: "You won a ticket to the Night Spectacular, show this qrcode to the museum information.",
+            imageUrl: 'img/qrcode.png',
+            closeOnConfirm: false,
+            confirmButtonText: "Yeah!",
+          });
+        }
       });
     } else {
       swal('Good job!', 'You finished ' + puzzle.title, 'success')      
