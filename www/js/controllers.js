@@ -58,35 +58,46 @@ angular.module('starter.controllers', [])
           {
             title: "Puzze #1",
             q: "This is my first battle in war?",
-            isFinished: false
+            isFinished: false,
+            id: "tod-1"
           },
           {
             title: "Puzze #2",
             q: "I used to collect the water from the rain?",
-            isFinished: false
+            isFinished: true,
+            id: "tod-1"
           },
           {
             title: "Puzze #3",
             q: "I'm the highest place in the citadel?",
-            isFinished: false
+            isFinished: true,
+            id: "tod-1"
           },
           {
             title: "Puzze #4",
             q: "I'm hiding in the crusader room?",
-            isFinished: false
+            isFinished: true,
+            id: "tod-1"
           },
           {
             title: "Puzze #5",
             q: "I'm hiding in the hourses room?",
-            isFinished: false
+            isFinished: true,
+            id: "tod-1"
           }
         ]
 
-        $scope.scanQR = function() {
+        $scope.scanQR = function(puzzle) {
           $ionicPlatform.ready(function() {
             $cordovaBarcodeScanner.scan()
             .then(function(barcodeData) {
-              alert(barcodeData.text)
+
+              if (barcodeData.text === puzzle.id) {
+                success(puzzle)
+              } else {
+                alert("This is the wrong answer, continue searching...")
+              }
+
             }, function(error) {
               alert(error)
             });
@@ -118,7 +129,7 @@ angular.module('starter.controllers', [])
             }
         }
 
-  $scope.success = function (puzzle) {
+  function success (puzzle) {
     angular.forEach($scope.puzzels, function(p) {
       if (p.title === puzzle.title) {
         p.isFinished = true;
