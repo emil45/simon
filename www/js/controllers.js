@@ -143,9 +143,9 @@ angular.module('starter.controllers', [])
 
     if (isFinishedAll) {
       swal({
-        title: "Sweet!",
-        text: "Here's a custom image.",
-        imageUrl: 'thumbs-up.jpg'
+        title: "Congratulations!",
+        text: "You won a price..",
+        imageUrl: 'img/king.png'
       });
     } else {
       swal('Good job!', 'You finished ' + puzzle.title, 'success')      
